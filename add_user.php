@@ -11,7 +11,8 @@ if($_POST)
 	$address=$_POST['address'];
 	
 	
-	$sql="INSERT INTO `register`(`name`, `email`, `password`, `number`, `address`) VALUES ('".$name."','".$email."','".$password."','".$number."','".$address."')";
+	$pwHash = password_hash($password, PASSWORD_DEFAULT);
+	$sql="INSERT INTO `register`(`name`, `email`, `password`, `number`, `address`) VALUES ('".$name."','".$email."','".$pwHash."','".$number."','".$address."')";
 
 	$query = mysqli_query($conn,$sql);
 	if($query)
