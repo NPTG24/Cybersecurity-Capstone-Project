@@ -2,7 +2,7 @@
 <div class="container">
 
 <center><h2 style="color:black; margin-top:20%">Cybersecurity Capstone Project</h2></center>
-<center><a href=""><img src="images/logo.png" width="180" height="60"></a></center>
+<center><a href="https://github.com/FelipeCC24/Cybersecurity-Capstone-Project"><img src="images/logo.png" width="180" height="60"></a></center>
 </div>
 
 </body>
