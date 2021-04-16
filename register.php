@@ -42,7 +42,8 @@ color:white;
     <div class="form-group">
       <label class="control-label col-sm-2 col-sm-offset-2" for="pwd">Password:</label>
       <div class="col-sm-5">      
-        <input type="password" minLength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="form-control" id="pwd" placeholder="Enter a password" name="password" required>
+        <input type="password" pattern="(?=^(?:[^A-Z]*[A-Z]))(?=^(?:[^a-z]*[a-z]))(?=^(?:\D*\d))(?=^(?:\w*\W))^[A-Za-z\d\W]{8,}$" class="form-control" id="pwd" placeholder="Enter a password" name="password" required>
+        <label>Password must contain minimum 8 characters, at least one uppercase letter, one lowercase letter, one number and one special character.</label><br>
       </div>
     </div>
 	 <div class="form-group">
