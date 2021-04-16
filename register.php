@@ -18,6 +18,9 @@ color:white;
 }
   </style>
 
+
+
+
 <div class="container">
 
   <center><h2>Register</h2></center></br>
@@ -38,8 +41,8 @@ color:white;
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2 col-sm-offset-2" for="pwd">Password:</label>
-      <div class="col-sm-5">          
-        <input type="password" class="form-control" id="pwd" placeholder="Enter a password" name="password" required>
+      <div class="col-sm-5">      
+        <input type="password" minLength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="form-control" id="pwd" placeholder="Enter a password" name="password" required>
       </div>
     </div>
 	 <div class="form-group">
@@ -55,7 +58,6 @@ color:white;
         <textarea class="form-control" id="address" placeholder="Enter your address" name="address" required></textarea>
       </div>
     </div>
-    
     <div class="form-group">        
       <div class="col-sm-offset-4 col-sm-8">
         <button type="submit" class="btn btn-primary">Register here</button>
