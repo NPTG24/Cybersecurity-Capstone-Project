@@ -14,6 +14,28 @@ if($_POST)
 	$Hash = password_hash($password, PASSWORD_DEFAULT);
 	$sql="INSERT INTO `register`(`name`, `email`, `password`, `number`, `address`) VALUES ('".$name."','".$email."','".$Hash."','".$number."','".$address."')";
 
+	$vere = "SELECT * FROM register WHERE email = '$email'";
+	$verify_email = mysqli_query($conn, $vere);
+	if(mysqli_num_rows($verify_email) > 0){
+		echo '
+		<script> 
+			alert("Email already registered"); 
+			window.location = "/chat_project/register.php";
+		</script>';
+		exit();
+	}
+
+	$veru = "SELECT * FROM register WHERE name = '$name'";
+	$verify_user = mysqli_query($conn, $veru);
+	if(mysqli_num_rows($verify_user) > 0){
+		echo '
+		<script> 
+			alert("Username already registered"); 
+			window.location = "/chat_project/register.php";
+		</script>';
+		exit();
+	}
+
 	$query = mysqli_query($conn,$sql);
 	if($query)
 	{
@@ -26,5 +48,5 @@ if($_POST)
 		echo "Something went wrong";
 	}
 	
-	}
+}
 ?>

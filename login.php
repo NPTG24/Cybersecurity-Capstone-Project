@@ -42,12 +42,20 @@ color:white;
 			    header('Location: home.php');
         }
         else{
-          print("*********INCORRECT EMAIL OR PASSWORD*********");
+          echo '
+          <script> 
+            alert("Incorrect email or password"); 
+            window.location = "/chat_project/login.php";
+          </script>';
         }
       }
 		}
 		else{
-			print("*********INCORRECT EMAIL OR PASSWORD*********");
+      echo '
+      <script> 
+        alert("Incorrect email or password"); 
+        window.location = "/chat_project/login.php";
+      </script>';
 		}
 	}
 ?>
