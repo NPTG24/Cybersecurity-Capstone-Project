@@ -1,35 +1,49 @@
-<?php
 
-$conn=mysqli_connect('localhost','root','','proyect_db');
+<style>
+  h2{
+color:white;
+  }
+  label{
+color:white;
+  }
+  span{
+	  color:#673ab7;
+	  font-weight:bold;
+  }
+  .container {
+    margin-top: 3%;
+    width: 60%;
+    background-color: #26262b9e;
+    padding-right:10%;
+    padding-left:10%;
+  }
+  .btn-primary {
+    background-color: #673AB7;
+	}
+	.display-chat{
+		height:300px;
+		background-color:#d69de0;
+		margin-bottom:4%;
+		overflow:auto;
+		padding:15px;
+	}
+	.message{
+		background-color: #c616e469;
+		color: white;
+		border-radius: 5px;
+		padding: 5px;
+		margin-bottom: 3%;
+	}
+  </style>
 
-?>
+<div class="container">
+  <center><h2>DATABASE<span>
+  <br><br>
+	<label>Choose an option</label><br>
+	<br><br>
+	<a href="db_register.php" class="primary">Users</a>
+    <a><></a>
+	<a href="db_chats.php" class="primary">Chats</a>
 
-<table border="1">
-<tr>
-			<td>id</td>
-			<td>name</td>
-			<td>email</td>
-			<td>password</td>
-			<td>number</td>
-            <td>adress</td>
-            <td>modified_on</td>
-		</tr>
-<?php
-$sql="SELECT * from register";
-$res=mysqli_query($conn,$sql);
+</div>
 
-while($row=mysqli_fetch_array($res)){
-?>
-	<tr>
-		<td><?php echo $row['id'] ?></td>
-		<td><?php echo $row['name'] ?></td>
-		<td><?php echo $row['email'] ?></td>
-		<td><?php echo $row['password'] ?></td>
-		<td><?php echo $row['number'] ?></td>
-        <td><?php echo $row['address'] ?></td>
-        <td><?php echo $row['modified_on'] ?></td>
-	</tr>
-<?php 
-}
- ?>
-</table>
