@@ -42,12 +42,12 @@ color:white;
 			    header('Location: home.php');
         }
         else{
-          $showError = "Incorrect email or password";
+          print("*********INCORRECT EMAIL OR PASSWORD*********");
         }
       }
 		}
 		else{
-			$showError = "Incorrect email or password";
+			print("*********INCORRECT EMAIL OR PASSWORD*********");
 		}
 	}
 ?>
