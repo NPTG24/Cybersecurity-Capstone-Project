@@ -29,7 +29,7 @@ color:white;
       <label class="control-label col-sm-2 col-sm-offset-2" for="name">Name:</label>
 	  
       <div class="col-sm-5">
-        <input type="text" class="form-control" id="name" placeholder="Enter a name" name="name" required>
+        <input type="text" class="form-control" id="name" placeholder="Enter a username" name="Username" required>
       </div>
     </div>
 	<div class="form-group">
@@ -49,7 +49,7 @@ color:white;
 	 <div class="form-group">
       <label class="control-label col-sm-2 col-sm-offset-2" for="number">Phone:</label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" id="number" placeholder="Enter a number" name="number" required>
+        <input type="text" class="form-control" id="number" placeholder="Enter a number" name="number">
       </div>
     </div>
 	 <div class="form-group">
@@ -59,6 +59,7 @@ color:white;
         <textarea class="form-control" id="address" placeholder="Enter your address" name="address" required></textarea>
       </div>
     </div>
+    <label>(*)</label><br>
     <div class="form-group">        
       <div class="col-sm-offset-4 col-sm-8">
         <button type="submit" class="btn btn-primary">Register here</button>

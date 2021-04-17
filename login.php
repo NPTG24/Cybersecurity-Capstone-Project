@@ -1,4 +1,6 @@
-<?php include "layouts/header.php"; ?>
+<?php 
+include "layouts/header.php"; 
+?>
 <style>
   h2{
 color:white;
@@ -20,29 +22,38 @@ color:white;
 }
   </style>
 <?php
+  $login = false;
   include "config.php";
   if($_POST)
 	{
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-		
-		$sql = "SELECT * FROM `register` where email = '".$email."' and password = '".$password."' ";
+		$sql = "SELECT * FROM `register` where email = '$email'";
 		$query =  mysqli_query($conn, $sql);
-		if(mysqli_num_rows($query)>0)
+    $num = mysqli_num_rows($query);
+    if ($num == 1)
 		{
-			$row = mysqli_fetch_assoc($query);
-			session_start();
-			$_SESSION['name'] = $row['name'];
-			header('Location: home.php');
+      while($row = mysqli_fetch_assoc($query)){
+        if(password_verify($password, $row['password']))
+        {
+          $login = true;
+			    session_start();
+			    $_SESSION['name'] = $row['name'];
+			    header('Location: home.php');
+        }
+        else{
+          $showError = "Incorrect email or password";
+        }
+      }
 		}
-		else
-		{
-			echo "<script> alert('Incorrect email or password.'); </script>";
+		else{
+			$showError = "Incorrect email or password";
 		}
 	}
 ?>
 
 <div class="container">
+
   <center><h2>Login</h2></center></br>
   <form class="form-horizontal" method="post" action="">
     <div class="form-group">
