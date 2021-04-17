@@ -45,5 +45,4 @@ color:white;
     <a><></a>
 	<a href="db_chats.php" class="primary">Chats</a>
 
-</div>
 
