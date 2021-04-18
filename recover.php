@@ -15,6 +15,11 @@
             $token = generaTokenPass($email);
             $url = 'http://'.$_SERVER["SERVER_NAME"].'/chat_project/recoverpass.php?user_id='.$user_id.'&token='.$token;
 
+            $subject = 'Recover password - Users system'
+            $body = "Hello $name to reset your password click here -> <a href='$url'>$url</a>";
+
+            if()
+
 
         }
     
