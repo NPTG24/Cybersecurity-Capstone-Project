@@ -1,10 +1,12 @@
 <?php
 
+include "config.php";
+
 function getValue($camp, $campWhere, $value)
 {
-    global $mysqli;
+    global $conn;
     
-    $stmt = $mysqli->prepare("SELECT $camp FROM  WHERE $campWhere = ? LIMIT 1");
+    $stmt = $conn->prepare("SELECT $camp FROM register WHERE $campWhere = ? LIMIT 1");
     $stmt->bind_param('s', $value);
     $stmt->execute();
     $stmt->store_result();
@@ -22,19 +24,6 @@ function getValue($camp, $campWhere, $value)
     }
 }
 
-function generaTokenPass($user_id)
-{
-    global $mysqli;
-    
-    $token = generateToken();
-    
-    $stmt = $mysqli->prepare("UPDATE register SET token_password=?, password_request=1 WHERE id = ?");
-    $stmt->bind_param('ss', $token, $user_id);
-    $stmt->execute();
-    $stmt->close();
-    
-    return $token;
-}
 
 function SendEmail($email, $name, $subject, $body){
 		
@@ -43,18 +32,18 @@ function SendEmail($email, $name, $subject, $body){
     $mail = new PHPMailer();
     $mail->isSMTP();
     $mail->SMTPAuth = true;
-    $mail->SMTPSecure = 'tipo de seguridad'; //Modificar
-    $mail->Host = 'dominio'; //Modificar
-    $mail->Port = puerto; //Modificar
+    $mail->SMTPSecure = 'tls';
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Port = 587; 
     
-    $mail->Username = 'correo emisor'; //Modificar
-    $mail->Password = 'password de correo emisor'; //Modificar
+    $mail->Username = 't6059778@gmail.com'; 
+    $mail->Password = 'qwert987yuiop'; 
     
-    $mail->setFrom('correo emisor', 'nombre de correo emisor'); //Modificar
-    $mail->addAddress($email, $nombre);
+    $mail->setFrom('t6059778@gmail.com', 'Recover password'); 
+    $mail->addAddress($email, $name);
     
-    $mail->Subject = $asunto;
-    $mail->Body    = $cuerpo;
+    $mail->Subject = $subject;
+    $mail->Body   = $body;
     $mail->IsHTML(true);
     
     if($mail->send())
@@ -62,3 +51,5 @@ function SendEmail($email, $name, $subject, $body){
     else
     return false;
 }
+
+

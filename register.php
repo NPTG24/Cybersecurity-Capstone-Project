@@ -49,7 +49,7 @@ color:white;
 	 <div class="form-group">
       <label class="control-label col-sm-2 col-sm-offset-2" for="number">Phone:</label>
       <div class="col-sm-5">
-        <input type="tel" class="form-control" id="number" placeholder="Enter a telephone number" name="number">
+        <input type="tel" class="form-control" id="number" placeholder="Enter a mobile phone number" name="number">
       </div>
     </div>
 	 <div class="form-group">

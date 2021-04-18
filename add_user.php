@@ -12,7 +12,8 @@ if($_POST)
 	
 
 	$Hash = password_hash($password, PASSWORD_DEFAULT);
-	$sql="INSERT INTO `register`(`name`, `email`, `password`, `number`, `address`) VALUES ('".$name."','".$email."','".$Hash."','".$number."','".$address."')";
+	$Hashphone = password_hash($number, PASSWORD_DEFAULT); 
+	$sql="INSERT INTO `register`(`name`, `email`, `password`, `number`, `address`) VALUES ('".$name."','".$email."','".$Hash."','".$Hashphone."','".$address."')";
 
 	$vere = "SELECT * FROM register WHERE email = '$email'";
 	$verify_email = mysqli_query($conn, $vere);
