@@ -1,6 +1,5 @@
 <?php 
     include "layouts/header.php"; 
-
 ?>
 <style>
   h2{
@@ -26,7 +25,7 @@ color:white;
 <div class="container">
 
   <center><h2>Recover password</h2></center></br>
-  <form class="form-horizontal" method="post" action="conf_recover1.php">
+  <form class="form-horizontal" method="post" action="conf_recover.php">
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Email:</label>
       <div class="col-sm-10">
