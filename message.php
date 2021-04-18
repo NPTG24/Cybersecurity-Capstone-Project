@@ -5,9 +5,11 @@
   {
     include "layouts/header2.php"; 
     include "config.php"; 
+    include "decryp_msg.php";
   }
     $sql = "SELECT * FROM chat WHERE receives='".$_SESSION['name']."'";
     $res = mysqli_query($conn,$sql);
+    
 
 ?>
 <style>
@@ -57,12 +59,20 @@ color:white;
 	  <td width="321" align="center" valign="top"><strong>Date</strong></td>
     </tr>
     <?php
+
+  
 	$i = 0; 
+  
 	while($row = mysqli_fetch_assoc($res)){ ?>
+   <?php 
+    $msg=$row['message'];
+    $decrypted=decrypt($msg, $private_secret_key);
+    ?>
     <tr bgcolor="<?php if($row['viewed'] == "yes") { echo "#FFE8E8"; } else { if($i%2==0) { echo "#FFE7CE"; } else { echo "#FFCAB0"; } } ?>">
-      <td align="center" valign="top"><?php echo $row['message']?></td>
+      <td align="center" valign="top"><?php echo $decrypted?></td>
       <td align="center" valign="top"><?php echo $row['name']?></td>
 	  <td align="center" valign="top"><?php echo $row['created_on']?></td>
+    
     </tr>
 <?php $i++;
 
@@ -72,4 +82,3 @@ color:white;
 <a href="chatpage.php" class="btn btn-primary">New message</a>
 <a href="mymessage.php" class="btn btn-primary">Sent messages</a>
 </table>
-

@@ -4,7 +4,7 @@
   if(isset($_SESSION['name']))
   {
     include "layouts/header2.php"; 
-    include "config.php"; 
+    include "config.php";
   }
     $sql = "SELECT * FROM chat WHERE name='".$_SESSION['name']."'";
     $res = mysqli_query($conn,$sql);
