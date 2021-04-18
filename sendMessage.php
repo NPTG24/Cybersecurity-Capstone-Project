@@ -23,17 +23,16 @@ if($_POST)
 		$encrypted = encrypt($msg, $private_secret_key);
 	
 		$sql="INSERT INTO `chat`(`name`,`receives`,`message`) VALUES ('".$user."','".$to."', '".$encrypted."')";
-		echo '
-		<script> 
-			alert("Message sent succesfully"); 
-			window.location = "/chat_project/sendMessage.php";
-		</script>';
 	
 	
 		$query = mysqli_query($conn,$sql);
 		if($query)
 		{
-			header('Location: chatpage.php');
+			echo '
+			<script> 
+				alert("Message sent succesfully"); 
+				window.location = "/chat_project/chatpage.php";
+			</script>';
 		}
 		else
 		{
@@ -44,7 +43,7 @@ if($_POST)
 		echo '
 		<script> 
 			alert("Username does not exist!"); 
-			window.location = "/chat_project/home.php";
+			window.location = "/chat_project/chatpage.php";
 		</script>';
 	}
 	
