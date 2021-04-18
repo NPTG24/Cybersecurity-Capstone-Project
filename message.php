@@ -64,7 +64,7 @@ color:white;
 	$i = 0; 
   
 	while($row = mysqli_fetch_assoc($res)){ ?>
-   <?php 
+    <?php 
     $msg=$row['message'];
     $decrypted=decrypt($msg, $private_secret_key);
     ?>
