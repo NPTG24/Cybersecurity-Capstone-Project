@@ -83,12 +83,12 @@ color:white;
 
 
 	         
-      <div class="col-sm-2">
-        <button type="submit" class="btn btn-primary" >Send</button>
-		<a href="home.php" class="btn btn-primary">Home</a>
-		<a href="mymessage.php" class="btn btn-primary">Sent messages</a>
-	  	<a href="message.php" class="btn btn-primary">Received messages</a>
-      </div>
+<div class="col-sm-2">
+  <button type="submit" class="btn btn-primary" >Send</button>
+	<a href="home.php" class="btn btn-primary">Home</a>
+	<a href="mymessage.php" class="btn btn-primary">Sent messages</a>
+	<a href="message.php" class="btn btn-primary">Received messages</a>
+</div>
 
 
 <?php
