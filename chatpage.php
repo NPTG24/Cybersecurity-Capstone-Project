@@ -77,8 +77,8 @@ color:white;
    <form class="form-horizontal" method="post" action="sendMessage.php">
     <div class="form-group">
       <div class="col-sm-10">        
-	    <textarea name="to" class="form-control" placeholder="To..[Username]"></textarea>
-        <textarea name="msg" class="form-control" placeholder="Enter your message here ..."></textarea>
+	    <textarea name="to" class="form-control" placeholder="To..[Username]" required></textarea>
+        <textarea name="msg" class="form-control" placeholder="Enter your message here ..." required></textarea>
       </div>
 
 
