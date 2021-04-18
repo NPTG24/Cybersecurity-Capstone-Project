@@ -10,14 +10,21 @@
         $sql2 = "SELECT * FROM register WHERE number = '$number'";
         $query =  mysqli_query($conn, $sql);
         $num = mysqli_num_rows($query);
-        $query2 =  mysqli_query($conn, $sql2);
-        $num2 = mysqli_num_rows($query2);
-        if ($num == 1 and $num2 == 1){
+        $query2 =  mysqli_query($conn, $sql);
+        $num2 = mysqli_num_rows($query);
+        if ($num >= 1 and $num2 >= 1){
             while($row = mysqli_fetch_assoc($query)){
                 if(password_verify($number, $row['number']))
                 {
                     $_SESSION['email'] = $row['email'];
-                    header("Location: recoverpass.php?var1=$email&var2=$phone");
+                    header("Location: recoverpass.php?var1=$email&var2=$number");
+                }
+                else{
+                    echo '
+                    <script> 
+                        alert("email or phone not found"); 
+                        window.location = "/chat_project/recover.php";
+                    </script>';
                 }
             }
         }

@@ -80,6 +80,7 @@ color:white;
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" class="btn btn-primary">Login</button>
+        <a href="recover.php" class="btn btn-primary">Did you forget your password?</a>
       </div>
     </div>
   </form>
