@@ -58,6 +58,7 @@ color:white;
    <div class="display-chat" id = "display-chat">
   <table width="800" border="0" align="center" cellpadding="1" cellspacing="1">
     <tr>
+        <?phpprint($res);?>
       <td width="53" align="center" valign="top"><strong>Message</strong></td>
       <td width="321" align="center" valign="top"><strong>From</strong></td>
 	  <td width="321" align="center" valign="top"><strong>Date</strong></td>
@@ -66,7 +67,6 @@ color:white;
 
   
 	$i = 0; 
-  print($res);
 	while($row = mysqli_fetch_assoc($res)){ ?>
     <?php 
     $msg=$row['message'];
