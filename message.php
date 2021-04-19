@@ -12,7 +12,7 @@
 	{
 		header('location:index.php');
 	}
-    $sql = "SELECT * FROM chat WHERE receives='$_SESSION['name']'";
+    $sql = "SELECT * FROM chat WHERE receives='".$_SESSION['name']."'";
     $res = mysqli_query($conn,$sql);
     
 
@@ -54,7 +54,7 @@ color:white;
 	}
   </style>
   <div class="container">
-  <center><h2>Your received messages <span style="color:#dd7ff3;"><?php echo $_SESSION['name']; ?></span></h2>
+  <center><h2>Your received messages<span style="color:#dd7ff3;"></span></h2>
   </center></br>
    <div class="display-chat" id = "display-chat">
   <table width="800" border="0" align="center" cellpadding="1" cellspacing="1">
@@ -70,7 +70,7 @@ color:white;
   
 	while($row = mysqli_fetch_assoc($res)){ ?>
     <?php 
-    $msg=$row['message'];
+    $msg=$row['message']);
     $decrypted=decrypt($msg, $private_secret_key);
     ?>
     <tr bgcolor="<?php if($row['viewed'] == "yes") { echo "#FFE8E8"; } else { if($i%2==0) { echo "#FFE7CE"; } else { echo "#FFCAB0"; } } ?>">

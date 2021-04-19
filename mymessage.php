@@ -52,7 +52,7 @@ color:white;
 	}
   </style>
   <div class="container">
-  <center><h2>Sent messages from <span style="color:#dd7ff3;"><?php echo $_SESSION['name']; ?></span></h2>
+  <center><h2>Sent messages<span style="color:#dd7ff3;"></span></h2>
   </center></br>
    <div class="display-chat" id = "display-chat">
   <table width="800" border="0" align="center" cellpadding="1" cellspacing="1">
