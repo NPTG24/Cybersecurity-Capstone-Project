@@ -12,7 +12,7 @@
 	{
 		header('location:index.php');
 	}
-    $sql = "SELECT * FROM chat WHERE receives='.$_SESSION['name'].'";
+    $sql = "SELECT * FROM chat WHERE receives='$_SESSION['name']'";
     $res = mysqli_query($conn,$sql);
     
 

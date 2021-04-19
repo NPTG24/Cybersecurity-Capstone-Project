@@ -11,7 +11,7 @@
 	{
 		header('location:index.php');
 	}
-    $sql = "SELECT * FROM chat WHERE name='.$_SESSION['name'].'";
+    $sql = "SELECT * FROM chat WHERE name='$_SESSION['name']'";
     $res = mysqli_query($conn,$sql);
 
 ?>
