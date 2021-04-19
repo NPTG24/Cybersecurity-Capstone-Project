@@ -7,6 +7,7 @@
     include "config.php"; 
     include "decryp_msg.php";
     $name = $_SESSION['name'];
+    print($name);
 
   }
   else
