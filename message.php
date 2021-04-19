@@ -6,13 +6,14 @@
     include "layouts/header2.php"; 
     include "config.php"; 
     include "decryp_msg.php";
+    $sql = "SELECT * FROM chat WHERE receives='".$_SESSION['name']."'";
+    $res = mysqli_query($conn,$sql);
   }
   else
 	{
 		header('location:index.php');
 	}
-    $sql = "SELECT * FROM chat WHERE receives='".$_SESSION['name']."'";
-    $res = mysqli_query($conn,$sql);
+ 
     
 
 ?>
