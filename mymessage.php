@@ -1,8 +1,7 @@
 
 <?php
   session_start();
-  if(isset($_SESSION['name']))
-  {
+
     include "layouts/header2.php"; 
     include "config.php";
     include "decryp_msg.php";
@@ -42,11 +41,8 @@
     </table>
   
   <?php
-  }
-  else
-	{
-		header('location:index.php');
-	}
+  
+
 
 ?>
 <style>
