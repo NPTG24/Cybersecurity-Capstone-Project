@@ -24,32 +24,20 @@
   </tr>
   
   <?php
-
-  function decrypt($msg, $encrypt_key){
-    $key = hex2bin($encrypt_key);
-    $msg = base64_decode($msg);
-    $nonceSize = openssl_cipher_iv_length('aes-256-ctr');
-    $nonce = mb_substr($msg,0,$nonceSize,'8bit');
-    $ciphertext = mb_substr($msg,$nonceSize,null,'8bit');
-
-    $plaintext = openssl_decrypt($ciphertext,'aes-256-ctr',$key,OPENSSL_RAW_DATA,$nonce);
-    return $plaintext;
-  }
-
+  
   $i = 0; 
   while($row = mysqli_fetch_array($res)){
     $msg=$row['message'];
     $decrypted=decrypt($msg, $private_secret_key);
-    ?>
-    <tr bgcolor="<?php if($row['viewed'] == "yes") { echo "#FFE8E8"; } else { if($i%2==0) { echo "#FFE7CE"; } else { echo "#FFCAB0"; } } ?>">
-    <td align="center" valign="top"><?php echo $decrypted?></td>
-    <td align="center" valign="top"><?php echo $row['receives']?></td>
-    <td align="center" valign="top"><?php echo $row['created_on']?></td>
-    </tr>
-    <?php $i++;
-  } 
+    $i++;
+  }?>
+  <tr bgcolor="<?php if($row['viewed'] == "yes") { echo "#FFE8E8"; } else { if($i%2==0) { echo "#FFE7CE"; } else { echo "#FFCAB0"; } } ?>">
+  <td align="center" valign="top"><?php echo $decrypted?></td>
+  <td align="center" valign="top"><?php echo $row['receives']?></td>
+  <td align="center" valign="top"><?php echo $row['created_on']?></td>
+  </tr>
 
-?>
+
   <a href="home.php" class="btn btn-primary">Home</a>
   <a href="chatpage.php" class="btn btn-primary">New message</a>
   <a href="message.php" class="btn btn-primary">Received messages</a>
