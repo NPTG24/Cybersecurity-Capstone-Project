@@ -1,5 +1,6 @@
 <?php 
     include "config.php";
+    include "functions.php";
 
     if($_POST)
 	{

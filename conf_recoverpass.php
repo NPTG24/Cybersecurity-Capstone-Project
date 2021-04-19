@@ -2,6 +2,7 @@
     include "config.php";
 
 
+
     if($_POST)
 	{
         $email = $_GET["var1"];
@@ -14,7 +15,7 @@
             while($row = mysqli_fetch_assoc($query)){
                 if(password_verify($number, $row['number']))
                 {
-                    $pass = escape($_POST["password"]);
+                    $pass = $_POST["password"];
                     $Newhash = password_hash($pass, PASSWORD_DEFAULT);
                     $sql2 ="UPDATE register SET password = '".$Newhash."' WHERE email = '".$email."'";
                     if(mysqli_query($conn, $sql2)==TRUE){
