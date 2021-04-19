@@ -26,7 +26,8 @@
   <?php
   
   $i = 0; 
-  while($row != mysqli_fetch_array($res)){
+  while($row = mysqli_fetch_array($res)){
+    print('hola');
     $msg=$row['message'];
     $decrypted=decrypt($msg, $private_secret_key);
     ?>
