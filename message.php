@@ -80,9 +80,8 @@ color:white;
 	  <td align="center" valign="top"><?php echo $row['created_on']?></td>
     
     </tr>
-<?php $i++;
-
-} ?>
+    <?php $i++;
+  } ?>
 
 <a href="home.php" class="btn btn-primary">Home</a>
 <a href="chatpage.php" class="btn btn-primary">New message</a>

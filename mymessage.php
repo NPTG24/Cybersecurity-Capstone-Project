@@ -62,7 +62,7 @@ color:white;
       <td width="321" align="center" valign="top"><strong>To</strong></td>
 	  <td width="321" align="center" valign="top"><strong>Date</strong></td>
     </tr>
-    
+
     <?php
 	$i = 0; 
 	while($row = mysqli_fetch_assoc($res)){ ?>
@@ -75,9 +75,9 @@ color:white;
       <td align="center" valign="top"><?php echo $row['receives']?></td>
 	  <td align="center" valign="top"><?php echo $row['created_on']?></td>
     </tr>
-<?php $i++;
-
-} ?>
+    <?php $i++;
+  } ?>
+  
 <a href="home.php" class="btn btn-primary">Home</a>
 <a href="chatpage.php" class="btn btn-primary">New message</a>
 <a href="message.php" class="btn btn-primary">Received messages</a>
