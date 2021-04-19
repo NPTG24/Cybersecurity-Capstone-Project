@@ -1,23 +1,49 @@
 
 <?php
-  session_start();
-  if(isset($_SESSION['name']))
-  {
-    include "layouts/header2.php"; 
-    include "config.php"; 
-    include "decryp_msg.php";
-    $name = $_SESSION['name'];
+ 
+  include "layouts/header2.php"; 
+  include "config.php"; 
+  include "decryp_msg.php";
+  $name = $_SESSION['name'];
 
-  }
-  else
-	{
-		header('location:index.php');
-	}
-    $sql = "SELECT * FROM chat WHERE receives='$name'";
-    $res = mysqli_query($conn,$sql);
+  $sql = "SELECT * FROM chat WHERE receives='$name'";
+  $res = mysqli_query($conn,$sql);
+?>
+  <div class="container">
+  <center><h2>Your received messages <span style="color:#dd7ff3;"><?php echo $_SESSION['name']; ?></span></h2>
+  </center></br>
+   <div class="display-chat" id = "display-chat">
+  <table width="800" border="0" align="center" cellpadding="1" cellspacing="1">
+    <tr>
+      <td width="53" align="center" valign="top"><strong>Message</strong></td>
+      <td width="321" align="center" valign="top"><strong>From</strong></td>
+	  <td width="321" align="center" valign="top"><strong>Date</strong></td>
+    </tr>
+    <?php
+
+  
+	$i = 0; 
+  
+	while($row = mysqli_fetch_array($res)){ ?>
+    <?php 
+    $msg=$row['message'];
+    $decrypted=decrypt($msg, $private_secret_key);
+    ?>
+    <tr bgcolor="<?php if($row['viewed'] == "yes") { echo "#FFE8E8"; } else { if($i%2==0) { echo "#FFE7CE"; } else { echo "#FFCAB0"; } } ?>">
+      <td align="center" valign="top"><?php echo $decrypted?></td>
+      <td align="center" valign="top"><?php echo $row['name']?></td>
+	  <td align="center" valign="top"><?php echo $row['created_on']?></td>
+    
+    </tr>
+    <?php $i++;
+  } ?>
+
+<a href="home.php" class="btn btn-primary">Home</a>
+<a href="chatpage.php" class="btn btn-primary">New message</a>
+<a href="mymessage.php" class="btn btn-primary">Sent messages</a>
+</table>
     
 
-?>
 <style>
   h2{
 color:white;
@@ -54,36 +80,4 @@ color:white;
 		margin-bottom: 3%;
 	}
   </style>
-  <div class="container">
-  <center><h2>Your received messages <span style="color:#dd7ff3;"><?php echo $_SESSION['name']; ?></span></h2>
-  </center></br>
-   <div class="display-chat" id = "display-chat">
-  <table width="800" border="0" align="center" cellpadding="1" cellspacing="1">
-    <tr>
-      <td width="53" align="center" valign="top"><strong>Message</strong></td>
-      <td width="321" align="center" valign="top"><strong>From</strong></td>
-	  <td width="321" align="center" valign="top"><strong>Date</strong></td>
-    </tr>
-    <?php
-
-  
-	$i = 0; 
-  
-	while($row = mysqli_fetch_assoc($res)){ ?>
-    <?php 
-    $msg=$row['message'];
-    $decrypted=decrypt($msg, $private_secret_key);
-    ?>
-    <tr bgcolor="<?php if($row['viewed'] == "yes") { echo "#FFE8E8"; } else { if($i%2==0) { echo "#FFE7CE"; } else { echo "#FFCAB0"; } } ?>">
-      <td align="center" valign="top"><?php echo $decrypted?></td>
-      <td align="center" valign="top"><?php echo $row['name']?></td>
-	  <td align="center" valign="top"><?php echo $row['created_on']?></td>
-    
-    </tr>
-    <?php $i++;
-  } ?>
-
-<a href="home.php" class="btn btn-primary">Home</a>
-<a href="chatpage.php" class="btn btn-primary">New message</a>
-<a href="mymessage.php" class="btn btn-primary">Sent messages</a>
-</table>
+  <
