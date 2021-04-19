@@ -57,8 +57,6 @@ color:white;
     </tr>
     <?php
 
-if($_POST){
-  {
     $sql = "SELECT * FROM chat WHERE receives='".$_SESSION['name']."'";
     $res = mysqli_query($conn,$sql);
 
@@ -85,10 +83,5 @@ if($_POST){
     <a href="mymessage.php" class="btn btn-primary">Sent messages</a>
     </table>
 
-  }
 
-<?php
-else
-{
-  header('location:index.php');
-}?>
+
