@@ -11,29 +11,30 @@
   $res = mysqli_query($conn,$sql);
 
  ?>
-  
-  <table border="1">
+
+  <div class="container">
+  <center><h2>Sent messages<span style="color:#dd7ff3;"></span></h2>
+  </center></br>
+  <div class="display-chat" id = "display-chat">
+  <table width="800" border="0" align="center" cellpadding="1" cellspacing="1">
   <tr>
-			<td>Receives</td>
-			<td>Message</td>
-			<td>Created_on</td>
-	</tr>
-<?php
-
-
-while($row=mysqli_fetch_array($res)){
-  $msg=$row['message'];
-  $decrypted=decrypt($msg, $private_secret_key);
+  <td width="53" align="center" valign="top"><strong>Message</strong></td>
+  <td width="321" align="center" valign="top"><strong>To</strong></td>
+	<td width="321" align="center" valign="top"><strong>Date</strong></td>
+  </tr>
+  
+  <?php
+  
+  $i = 0; 
+  while($row = mysqli_fetch_array($res)){
     ?>
-	<tr>
-		<td><?php echo $row['receives'] ?></td>
-		<td><?php echo $decrypted?></td>
-		<td><?php echo $row['created_on'] ?></td>
-	</tr>
-<?php 
-}
- ?>
-</table>
+    <tr bgcolor="<?php if($row['viewed'] == "yes") { echo "#FFE8E8"; } else { if($i%2==0) { echo "#FFE7CE"; } else { echo "#FFCAB0"; } } ?>">
+    <td align="center" valign="top"><?php echo $row['message']?></td>
+    <td align="center" valign="top"><?php echo $row['receives']?></td>
+    <td align="center" valign="top"><?php echo $row['created_on']?></td>
+    </tr>
+    <?php $i++;
+  } 
 
 ?>
   <a href="home.php" class="btn btn-primary">Home</a>
