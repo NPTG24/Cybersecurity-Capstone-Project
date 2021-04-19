@@ -25,7 +25,7 @@
   <?php
   
   $i = 0; 
-  while($row = mysqli_fetch_array($res)){
+  while($row = mysqli_fetch_assoc($res)){
     function decrypt($msg, $encrypt_key){
       $key = hex2bin($encrypt_key);
       $msg = base64_decode($msg);
