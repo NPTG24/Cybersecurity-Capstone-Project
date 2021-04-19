@@ -66,7 +66,7 @@ color:white;
 
   
 	$i = 0; 
-  
+  print($res);
 	while($row = mysqli_fetch_assoc($res)){ ?>
     <?php 
     $msg=$row['message'];
