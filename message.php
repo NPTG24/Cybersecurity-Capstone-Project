@@ -1,19 +1,11 @@
 
 <?php
   session_start();
-  if(isset($_SESSION['name']))
-  {
-    include "layouts/header2.php"; 
-    include "config.php"; 
-    include "decryp_msg.php";
-    include "functions.php";
-  }
-  else
-	{
-		header('location:index.php');
-	}
-    $sql = "SELECT * FROM chat WHERE receives='".$_SESSION['name']."'";
-    $res = mysqli_query($conn,$sql);
+  include "layouts/header2.php"; 
+  include "config.php"; 
+  include "decryp_msg.php";
+  include "functions.php";
+  
     
 
 ?>
@@ -65,25 +57,38 @@ color:white;
     </tr>
     <?php
 
+if($_POST){
+  {
+    $sql = "SELECT * FROM chat WHERE receives='".$_SESSION['name']."'";
+    $res = mysqli_query($conn,$sql);
+
   
-	$i = 0; 
+	  $i = 0; 
   
-	while($row = mysqli_fetch_assoc($res)){ ?>
-    <?php 
-    $msg=$row['message']);
-    $decrypted=decrypt($msg, $private_secret_key);
-    ?>
-    <tr bgcolor="<?php if($row['viewed'] == "yes") { echo "#FFE8E8"; } else { if($i%2==0) { echo "#FFE7CE"; } else { echo "#FFCAB0"; } } ?>">
+	  while($row = mysqli_fetch_assoc($res)){ ?>
+      <?php 
+      $msg=$row['message']);
+      $decrypted=decrypt($msg, $private_secret_key);
+      ?>
+      <tr bgcolor="<?php if($row['viewed'] == "yes") { echo "#FFE8E8"; } else { if($i%2==0) { echo "#FFE7CE"; } else { echo "#FFCAB0"; } } ?>">
       <td align="center" valign="top"><?php echo $decrypted?></td>
       <td align="center" valign="top"><?php echo $row['name']?></td>
-	  <td align="center" valign="top"><?php echo $row['created_on']?></td>
+	    <td align="center" valign="top"><?php echo $row['created_on']?></td>
     
     </tr>
-<?php $i++;
+    <?php $i++;
 
-} ?>
+    } ?>
 
-<a href="home.php" class="btn btn-primary">Home</a>
-<a href="chatpage.php" class="btn btn-primary">New message</a>
-<a href="mymessage.php" class="btn btn-primary">Sent messages</a>
-</table>
+    <a href="home.php" class="btn btn-primary">Home</a>
+    <a href="chatpage.php" class="btn btn-primary">New message</a>
+    <a href="mymessage.php" class="btn btn-primary">Sent messages</a>
+    </table>
+
+  }
+
+<?php
+else
+{
+  header('location:index.php');
+}?>
