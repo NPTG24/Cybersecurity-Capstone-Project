@@ -22,7 +22,7 @@
                         echo '
                         <script> 
                             alert("updated password"); 
-                            window.location = "/home.php";
+                            window.location = "/login.php";
                         </script>';
                     }
                 }
