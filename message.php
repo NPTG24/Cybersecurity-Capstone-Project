@@ -1,8 +1,7 @@
 
 <?php
   session_start();
-  $name=$_SESSION['name']
-  if(isset($name))
+  if(isset($_SESSION['name']))
   {
     include "layouts/header2.php"; 
     include "config.php"; 
@@ -13,7 +12,7 @@
 	{
 		header('location:index.php');
 	}
-    $sql = "SELECT * FROM chat WHERE receives='".$name."'";
+    $sql = "SELECT * FROM chat WHERE receives='.$_SESSION['name'].'";
     $res = mysqli_query($conn,$sql);
     
 
@@ -55,7 +54,7 @@ color:white;
 	}
   </style>
   <div class="container">
-  <center><h2>Your received messages <span style="color:#dd7ff3;"><?php echo $name; ?></span></h2>
+  <center><h2>Your received messages <span style="color:#dd7ff3;"><?php echo $_SESSION['name']; ?></span></h2>
   </center></br>
    <div class="display-chat" id = "display-chat">
   <table width="800" border="0" align="center" cellpadding="1" cellspacing="1">

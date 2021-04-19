@@ -6,7 +6,7 @@
 		include "config.php"; 
 
 		
-		$sql="SELECT * FROM `chat`";
+		$sql="SELECT * FROM 'chat'";
 
 		$query = mysqli_query($conn,$sql);
 ?>
