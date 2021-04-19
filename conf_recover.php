@@ -24,7 +24,7 @@
                     echo '
                     <script> 
                         alert("email or phone not found"); 
-                        window.location = "/chat_project/recover.php";
+                        window.location = "/recover.php";
                     </script>';
                 }
             }
@@ -33,7 +33,7 @@
             echo '
             <script> 
                 alert("email or phone not found"); 
-                window.location = "/chat_project/recover.php";
+                window.location = "/recover.php";
             </script>';
         }
     }
@@ -41,7 +41,7 @@
         echo '
         <script> 
             alert("email or phone not found"); 
-            window.location = "/chat_project/recover.php";
+            window.location = "/recover.php";
         </script>';
     }
 

@@ -32,7 +32,7 @@ if($_POST)
 			echo '
 			<script> 
 				alert("Message sent succesfully"); 
-				window.location = "/chat_project/chatpage.php";
+				window.location = "/chatpage.php";
 			</script>';
 		}
 		else
@@ -44,7 +44,7 @@ if($_POST)
 		echo '
 		<script> 
 			alert("Username does not exist!"); 
-			window.location = "/chat_project/chatpage.php";
+			window.location = "/chatpage.php";
 		</script>';
 	}
 	

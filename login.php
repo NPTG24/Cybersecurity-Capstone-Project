@@ -45,7 +45,7 @@ color:white;
           echo '
           <script> 
             alert("Incorrect email or password"); 
-            window.location = "/chat_project/login.php";
+            window.location = "/login.php";
           </script>';
         }
       }
@@ -54,7 +54,7 @@ color:white;
       echo '
       <script> 
         alert("Incorrect email or password"); 
-        window.location = "/chat_project/login.php";
+        window.location = "/login.php";
       </script>';
 		}
 	}

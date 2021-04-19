@@ -22,7 +22,7 @@
                         echo '
                         <script> 
                             alert("updated password"); 
-                            window.location = "/chat_project/login.php";
+                            window.location = "/login.php";
                         </script>';
                     }
                 }
@@ -32,7 +32,7 @@
             echo '
             <script> 
                 alert("error"); 
-                window.location = "/chat_project/recover.php";
+                window.location = "/recover.php";
             </script>';
         }
     }

@@ -22,7 +22,7 @@ if($_POST)
 		echo '
 		<script> 
 			alert("Email already registered"); 
-			window.location = "/chat_project/register.php";
+			window.location = "/register.php";
 		</script>';
 		exit();
 	}
@@ -33,7 +33,7 @@ if($_POST)
 		echo '
 		<script> 
 			alert("Username already registered"); 
-			window.location = "/chat_project/register.php";
+			window.location = "/register.php";
 		</script>';
 		exit();
 	}
