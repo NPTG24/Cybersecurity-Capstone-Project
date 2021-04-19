@@ -11,20 +11,8 @@
   $res = mysqli_query($conn,$sql);
 
  ?>
-
-  <div class="container">
-  <center><h2>Sent messages<span style="color:#dd7ff3;"></span></h2>
-  </center></br>
-  <div class="display-chat" id = "display-chat">
-  <table width="800" border="0" align="center" cellpadding="1" cellspacing="1">
-  <tr>
-  <td width="53" align="center" valign="top"><strong>Message</strong></td>
-  <td width="321" align="center" valign="top"><strong>To</strong></td>
-	<td width="321" align="center" valign="top"><strong>Date</strong></td>
-  </tr>
   
- 
-    <table border="1">
+  <table border="1">
   <tr>
 			<td>Receives</td>
 			<td>Message</td>
