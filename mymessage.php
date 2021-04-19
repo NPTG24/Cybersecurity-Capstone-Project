@@ -23,21 +23,31 @@
 	<td width="321" align="center" valign="top"><strong>Date</strong></td>
   </tr>
   
-  <?php
-  
-  $i = 0; 
-  while($row = mysqli_fetch_array($res)){
-    $msg=$row['message'];
-    $decrypted=decrypt($msg, $private_secret_key);
-    $i++;
-  }?>
-  <tr bgcolor="<?php if($row['viewed'] == "yes") { echo "#FFE8E8"; } else { if($i%2==0) { echo "#FFE7CE"; } else { echo "#FFCAB0"; } } ?>">
-  <td align="center" valign="top"><?php echo $decrypted?></td>
-  <td align="center" valign="top"><?php echo $row['receives']?></td>
-  <td align="center" valign="top"><?php echo $row['created_on']?></td>
-  </tr>
+ 
+    <table border="1">
+  <tr>
+			<td>Receives</td>
+			<td>Message</td>
+			<td>Created_on</td>
+	</tr>
+<?php
 
 
+while($row=mysqli_fetch_array($res)){
+  $msg=$row['message'];
+  $decrypted=decrypt($msg, $private_secret_key);
+    ?>
+	<tr>
+		<td><?php echo $row['receives'] ?></td>
+		<td><?php echo $decrypted?></td>
+		<td><?php echo $row['created_on'] ?></td>
+	</tr>
+<?php 
+}
+ ?>
+</table>
+
+?>
   <a href="home.php" class="btn btn-primary">Home</a>
   <a href="chatpage.php" class="btn btn-primary">New message</a>
   <a href="message.php" class="btn btn-primary">Received messages</a>
