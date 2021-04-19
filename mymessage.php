@@ -4,7 +4,6 @@
   session_start();
   include "layouts/header2.php"; 
   include "config.php";
-  include "decryp_msg.php";
   $name = $_SESSION['name'];
 
   $sql = "SELECT * FROM chat WHERE name='$name'";
@@ -27,9 +26,22 @@
   
   $i = 0; 
   while($row = mysqli_fetch_array($res)){
+    function decrypt($msg, $encrypt_key){
+      $key = hex2bin($encrypt_key);
+      $msg = base64_decode($msg);
+      $nonceSize = openssl_cipher_iv_length('aes-256-ctr');
+      $nonce = mb_substr($msg,0,$nonceSize,'8bit');
+      $ciphertext = mb_substr($msg,$nonceSize,null,'8bit');
+  
+      $plaintext = openssl_decrypt($ciphertext,'aes-256-ctr',$key,OPENSSL_RAW_DATA,$nonce);
+      return $plaintext;
+    }
+    $private_secret_key = '1f4276378ad3214c873928dbef42743f';
+    $msg=$row['message'];
+    $decrypted=decrypt($msg, $private_secret_key);
     ?>
     <tr bgcolor="<?php if($row['viewed'] == "yes") { echo "#FFE8E8"; } else { if($i%2==0) { echo "#FFE7CE"; } else { echo "#FFCAB0"; } } ?>">
-    <td align="center" valign="top"><?php echo $row['message']?></td>
+    <td align="center" valign="top"><?php echo $decrypted?></td>
     <td align="center" valign="top"><?php echo $row['receives']?></td>
     <td align="center" valign="top"><?php echo $row['created_on']?></td>
     </tr>
