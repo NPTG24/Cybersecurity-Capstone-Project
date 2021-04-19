@@ -1,6 +1,6 @@
 
 <?php
- 
+  session_Start();
   include "layouts/header2.php"; 
   include "config.php"; 
   include "decryp_msg.php";
@@ -10,7 +10,7 @@
   $res = mysqli_query($conn,$sql);
 ?>
   <div class="container">
-  <center><h2>Your received messages <span style="color:#dd7ff3;"><?php echo $_SESSION['name']; ?></span></h2>
+  <center><h2>Your received messages<span style="color:#dd7ff3;"></span></h2>
   </center></br>
    <div class="display-chat" id = "display-chat">
   <table width="800" border="0" align="center" cellpadding="1" cellspacing="1">
@@ -24,8 +24,7 @@
   
 	$i = 0; 
   
-	while($row = mysqli_fetch_array($res)){ ?>
-    <?php 
+	while($row = mysqli_fetch_array($res)){
     $msg=$row['message'];
     $decrypted=decrypt($msg, $private_secret_key);
     ?>
@@ -80,4 +79,4 @@ color:white;
 		margin-bottom: 3%;
 	}
   </style>
-  <
+
