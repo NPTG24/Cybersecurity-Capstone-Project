@@ -6,8 +6,6 @@ $dbUsername =$url['bfb973d3caa39c'];
 $dbPassword =$url['41b2fe72'];
 $dbDatabase =$url['heroku_a3a45f89798acbc'];
 
-$active_group = 'default';
-$query_builder = TRUE;
 
 $conn=mysqli_connect($dbHost,$dbUsername,$dbPassword,$dbDatabase);
 
