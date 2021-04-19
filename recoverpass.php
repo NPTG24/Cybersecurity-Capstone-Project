@@ -27,8 +27,8 @@ color:white;
 <div class="container">
   <center><h2>Recover password</h2></center></br>
   <?php
-  $var1 = $_GET["var1"];
-  $var2 = $_GET["var2"];
+  $var1 = escape($_GET["var1"]);
+  $var2 = escape($_GET["var2"]);
 ?>
   <form class="form-horizontal" method="post" action="conf_recoverpass.php?var1=<?php echo $var1;?>&var2=<?php echo $var2;?>">
     <div class="form-group">

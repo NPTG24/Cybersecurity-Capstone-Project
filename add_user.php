@@ -1,14 +1,15 @@
 <?php
 
 include "config.php";
+include "functions.php";
 
 if($_POST)
 {
-	$name=$_POST['name'];
+	$name=escape($_POST['name']);
 	$email=$_POST['email'];
-	$password=$_POST['password'];
-	$number=$_POST['number'];
-	$address=$_POST['address'];
+	$password=escape($_POST['password']);
+	$number=escape($_POST['number']);
+	$address=escape($_POST['address']);
 	
 
 	$Hash = password_hash($password, PASSWORD_DEFAULT);
@@ -36,6 +37,7 @@ if($_POST)
 		</script>';
 		exit();
 	}
+
 
 	$query = mysqli_query($conn,$sql);
 	if($query)

@@ -6,6 +6,7 @@
     include "layouts/header2.php"; 
     include "config.php"; 
     include "decryp_msg.php";
+    include "functions.php";
   }
   else
 	{

@@ -47,7 +47,7 @@ color:white;
 	}
   </style>
 
-<meta http-equiv="refresh" content="20">
+<meta http-equiv="refresh" content="200">
 <script>
 
       $(document).ready(function(){

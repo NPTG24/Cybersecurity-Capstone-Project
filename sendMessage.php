@@ -1,16 +1,17 @@
 <?php
 
 include "config.php";
+include "functions.php";
 session_start();
 if($_POST)
 {
 	$user=$_SESSION['name'];
 	$to=$_POST['to'];
-    $msg=$_POST['msg'];
+    $msg=escape($_POST['msg']);
 
 	$verify = "SELECT * FROM register WHERE name = '$to'";
 	$verify_user = mysqli_query($conn, $verify);
-	if(mysqli_num_rows($verify_user) > 0){
+	if(!empty($verify_user) AND mysqli_num_rows($verify_user) > 0){
 		function encrypt($msg, $encrypt_key){
 			$key = hex2bin($encrypt_key);
 			$nonceSize = openssl_cipher_iv_length('aes-256-ctr');

@@ -4,7 +4,7 @@
     if($_POST)
 	{
         $email = $_POST["email"];
-        $number = $_POST["number"];
+        $number = escape($_POST["number"]);
 
         $sql = "SELECT * FROM register WHERE email = '$email'";
         $sql2 = "SELECT * FROM register WHERE number = '$number'";
