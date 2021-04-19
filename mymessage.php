@@ -8,10 +8,9 @@
   $name = $_SESSION['name'];
 
   $sql = "SELECT * FROM chat WHERE name='$name'";
-  $res = mysqli_query($conn,$sql);
   
   $i = 0; 
-  while($row = mysqli_fetch_array($res)){
+  while($row = mysqli_fetch_array(mysqli_query($conn,$sql))){
     $msg=$row['message'];
     $decrypted=decrypt($msg, $private_secret_key);
     ?>
