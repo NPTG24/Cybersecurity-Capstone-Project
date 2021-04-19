@@ -1,18 +1,19 @@
 
 <?php
   session_start();
-  if(isset($_SESSION['name']))
+  if($_POST)
   {
     include "layouts/header2.php"; 
     include "config.php"; 
     include "decryp_msg.php";
     include "functions.php";
+    $name = $_POST['name'];
   }
   else
 	{
 		header('location:index.php');
 	}
-    $sql = "SELECT * FROM chat WHERE receives='".['name']."'";
+    $sql = "SELECT * FROM chat WHERE receives='".$_POST['name']."'";
     $res = mysqli_query($conn,$sql);
     
 
@@ -54,7 +55,7 @@ color:white;
 	}
   </style>
   <div class="container">
-  <center><h2>Your received messages <span style="color:#dd7ff3;"><?php echo ['name']; ?></span></h2>
+  <center><h2>Your received messages <span style="color:#dd7ff3;"><?php echo $_POST['name']; ?></span></h2>
   </center></br>
    <div class="display-chat" id = "display-chat">
   <table width="800" border="0" align="center" cellpadding="1" cellspacing="1">
