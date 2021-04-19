@@ -1,3 +1,5 @@
-"require": {
-    　　　"mbstring": "*"
-    　},
+{
+    "require": {
+      "ext-mbstring": "*"
+    }
+  }

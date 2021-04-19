@@ -1,5 +1,4 @@
 <?php
-include "composer.json"; 
 
 function decrypt($msg, $encrypt_key){
     $key = hex2bin($encrypt_key);
