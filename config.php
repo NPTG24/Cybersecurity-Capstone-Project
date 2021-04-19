@@ -1,10 +1,10 @@
 <?php
 
 
-$dbHost ='us-cdbr-east-03.cleardb.com';
-$dbUsername ='bfb973d3caa39c';
-$dbPassword ='41b2fe72';
-$dbDatabase ='heroku_a3a45f89798acbc';
+$dbHost ='remotemysql.com';
+$dbUsername ='5AEawBMs48';
+$dbPassword ='SwE7zrSYhS';
+$dbDatabase ='5AEawBMs48';
 
 
 $conn=mysqli_connect($dbHost,$dbUsername,$dbPassword,$dbDatabase);
