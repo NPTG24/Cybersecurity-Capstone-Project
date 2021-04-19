@@ -6,12 +6,13 @@
     include "layouts/header2.php"; 
     include "config.php";
     include "decryp_msg.php";
+    $name = $_SESSION['name'];
   }
   else
 	{
 		header('location:index.php');
 	}
-    $sql = "SELECT * FROM chat WHERE name='$_SESSION['name']'";
+    $sql = "SELECT * FROM chat WHERE name='$name'";
     $res = mysqli_query($conn,$sql);
 
 ?>
@@ -61,6 +62,7 @@ color:white;
       <td width="321" align="center" valign="top"><strong>To</strong></td>
 	  <td width="321" align="center" valign="top"><strong>Date</strong></td>
     </tr>
+    
     <?php
 	$i = 0; 
 	while($row = mysqli_fetch_assoc($res)){ ?>
