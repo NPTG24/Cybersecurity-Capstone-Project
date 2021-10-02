@@ -18,4 +18,4 @@ Build a secure messaging system. Users should be able to post messages to other 
 • Accessible database (/dbdump).
 
 ## Access ⚙️
-The project is hosted at: http://cybersecurity-project-felipe.herokuapp.com/ [Database: off]
+The project is hosted at: http://cybersecurity-project-felipe.herokuapp.com/ [Database: OFF]
